@@ -1,25 +1,27 @@
 package com.metaxiii.Game;
 
 import com.metaxiii.Enum.ListMode;
+import com.metaxiii.File.App;
 
 import java.util.InputMismatchException;
 
 public class PlusOuMoins extends Game {
     private int proposal;
     private int error;
-    private int errorMax;
     private String gameMode;
 
-    PlusOuMoins(ListMode gameMode) {
-        this.errorMax = 4;
+    PlusOuMoins(ListMode gameMode, boolean isdev) {
+        App app = new App();
+        this.errorMax = app.getError();
         this.error = 0;
         this.proposal = 0;
         this.gameMode = gameMode.name();
+        this.isDev = isdev;
     }
 
     public void init() {
-        System.out.println("Jeu du plus ou moins");
-        super.setSolution(gameMode);
+        System.out.println("Jeu du Plus ou moins");
+        super.setSolution(this.gameMode);
         super.getSize();
         super.showSize();
         try {
@@ -31,7 +33,8 @@ public class PlusOuMoins extends Game {
     }
 
     private void game() throws InterruptedException {
-        while (this.proposal != this.solution && this.error != this.errorMax) {
+        System.out.println(this.errorMax);
+        while (this.proposal != this.solution && this.error < this.errorMax) {
             if (this.userOne.isPlayer()) {
                 System.out.print("Proposition : ");
                 try {
@@ -42,11 +45,11 @@ public class PlusOuMoins extends Game {
                 }
                 operate(this.proposal, 1);
             }
-            if (this.userTwo.isPlayer()) {
+            if (this.userTwo.isPlayer() && this.proposal != this.solution) {
                 System.out.println("C'est l'ordinateur qui joue");
                 this.proposal = (int) (Math.random() * (this.size * 10));
                 System.out.println("L'ordi a décidé : " + this.proposal);
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 operate(this.proposal, 2);
             }
         }

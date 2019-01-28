@@ -4,18 +4,36 @@ import com.metaxiii.Enum.ListGame;
 import com.metaxiii.Enum.ListMode;
 
 public class Game extends Rules {
+    protected int errorMax;
+
+    public Game(boolean isDev) {
+        super();
+        this.isDev = isDev;
+    }
 
     public Game() {
         super();
     }
 
     public void initGame() {
-        while (this.gameMode == null) {
+        char rep;
+
+        while (this.gameChoice == null) {
             gameChoiceSelection();
             System.out.println("Souhaitez vous quitter l'application ?");
             System.out.println("O - oui");
             System.out.println("N - non");
+            rep = sc.nextLine().toLowerCase().charAt(0);
+            if (rep == 'n') {
+                resetGame();
+            } else
+                System.out.println("Au revoir !");
         }
+    }
+
+    private void resetGame() {
+        this.gameChoice = null;
+        this.gameMode = null;
     }
 
     private void gameChoiceSelection() {
@@ -39,10 +57,11 @@ public class Game extends Rules {
 
     private void gameChoice() {
         if (this.gameChoice.name().equals("PlusOuMoins")) {
-            PlusOuMoins plusOuMoins = new PlusOuMoins(this.gameMode);
+            PlusOuMoins plusOuMoins = new PlusOuMoins(this.gameMode, this.isDev);
             plusOuMoins.init();
         } else {
-            Mastermind mastermind = new Mastermind();
+            Mastermind mastermind = new Mastermind(this.gameMode, this.isDev);
+            mastermind.init();
         }
     }
 }
