@@ -2,12 +2,14 @@ package com.metaxiii.Game;
 
 import com.metaxiii.Enum.ListGame;
 import com.metaxiii.Enum.ListMode;
+import com.metaxiii.File.App;
 import com.metaxiii.User.User;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 abstract class Rules {
+    protected boolean isDev = false;
     int size;
     int solution;
     Scanner sc;
@@ -28,7 +30,7 @@ abstract class Rules {
             System.out.print("-");
             i /= 10;
         }
-        System.out.println("");
+        System.out.println();
     }
 
     void getSize() {
@@ -36,15 +38,15 @@ abstract class Rules {
         while (this.solution / this.size > 10) {
             this.size *= 10;
         }
-        System.out.println("Combinaison secrète : " + this.solution);
+        if (this.isDev)
+            System.out.println("Combinaison secrète : " + this.solution);
     }
 
     protected void setSolution(String gameMode) {
-        System.out.println(gameMode);
         if (gameMode.equals("Challenger")) {
             this.userOne = new User(true);
             this.userTwo = new User(false);
-            this.solution = this.setSolution();
+            this.solution = this.setSolutionDefault();
         } else if (gameMode.equals("Defenseur")) {
             this.userOne = new User(false);
             this.userTwo = new User(true);
@@ -60,13 +62,61 @@ abstract class Rules {
         } else {
             this.userOne = new User(true);
             this.userTwo = new User(true);
-            this.solution = this.setSolution();
+            this.solution = this.setSolutionDefault();
         }
     }
 
-    public int setSolution() {
+    protected void setSolutionMastermind(String gameMode) {
+        if (gameMode.equals("Challenger")) {
+            this.userOne = new User(true);
+            this.userTwo = new User(false);
+            this.solution = this.getSolutionDefault();
+        } else if (gameMode.equals("Defenseur")) {
+            this.userOne = new User(false);
+            this.userTwo = new User(true);
+            while (this.solution == 0) {
+                try {
+                    System.out.println("Rentrez un nombre, l'ordinateur devra essayer de le deviner");
+                    this.solution = this.sc.nextInt();
+                } catch (InputMismatchException e) {
+                    this.sc.next();
+                    System.out.println("Il vous faut rentrer un nombre !");
+                }
+            }
+        } else {
+            this.userOne = new User(true);
+            this.userTwo = new User(true);
+            this.solution = this.getSolutionDefault();
+        }
+    }
+
+
+    public int setSolutionDefault() {
+        App app = new App();
+        int limit;
+        limit = (int) Math.pow(10, app.getSize());
         int solution;
-        solution = (int) (Math.random() * 10000) + 1;
+        solution = (int) (Math.random() * limit) + 1;
         return solution;
+    }
+
+    public int getSolutionDefault() {
+        App app;
+        int size;
+        int limit;
+        int i;
+        String el;
+        el = "";
+        i = 0;
+        app = new App();
+        size = app.getSize();
+        limit = app.getValue();
+        while (i < size) {
+            this.solution = (int) ((Math.random() * limit) + 1);
+            el += Integer.toString(this.solution);
+            i++;
+        }
+        this.solution = Integer.parseInt(el);
+        return this.solution;
     }
 }
