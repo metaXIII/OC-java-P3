@@ -23,6 +23,9 @@ public class PlusOuMoins extends Game {
         System.out.println("Jeu du Plus ou moins");
         super.setSolution(this.gameMode);
         super.getSize();
+        if (isDev) {
+            logger.info("La solution est : " + this.solution);
+        }
         super.showSize();
         try {
             game();
@@ -33,7 +36,7 @@ public class PlusOuMoins extends Game {
     }
 
     private void game() throws InterruptedException {
-        System.out.println(this.errorMax);
+        logger.info("Nombre d'erreur max : " + this.errorMax);
         while (this.proposal != this.solution && this.error < this.errorMax) {
             if (this.userOne.isPlayer()) {
                 System.out.print("Proposition : ");
@@ -42,6 +45,7 @@ public class PlusOuMoins extends Game {
                 } catch (InputMismatchException exception) {
                     sc.next();
                     System.out.println("Vous n'avez pas rentré de chiffre - Vous perdez un point de pénalité");
+                    logger.error("L'utilisateur n'a pas saisi de nombre");
                 }
                 operate(this.proposal, 1);
             }
@@ -70,6 +74,7 @@ public class PlusOuMoins extends Game {
                     System.out.print("+");
                 i /= 10;
             }
+            logger.info("Erreur : "+ (this.error + 1));
             this.error++;
             if (player == 1)
                 System.out.println(" Il vous reste " + (this.errorMax - this.error) + " possibilités");

@@ -23,6 +23,9 @@ public class Mastermind extends Game {
         System.out.println("Jeu du mastermind");
         super.setSolutionMastermind(this.gameMode);
         super.getSize();
+        if (isDev) {
+            logger.info("La solution est : " + this.solution);
+        }
         super.showSize();
         try {
             game();
@@ -41,6 +44,7 @@ public class Mastermind extends Game {
                 } catch (InputMismatchException exception) {
                     sc.next();
                     System.out.println("Vous n'avez pas rentré de chiffre - Vous perdez un point de pénalité");
+                    logger.error("L'utilisateur n'a pas saisi de nombre");
                 }
                 operate(this.proposal, 1);
             }
@@ -78,6 +82,7 @@ public class Mastermind extends Game {
             else
                 System.out.println("L'ordinateur se trompe aussi, il reste " + (this.errorMax - this.error) + " possibilités");
             error++;
+            logger.info("Erreur : " + this.error);
         } else
             System.out.println("Bravo vous avez trouvé ! ");
     }

@@ -2,9 +2,12 @@ package com.metaxiii.Game;
 
 import com.metaxiii.Enum.ListGame;
 import com.metaxiii.Enum.ListMode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Game extends Rules {
     protected int errorMax;
+    protected final Logger logger = LogManager.getLogger(Game.class);
 
     public Game(boolean isDev) {
         super();
@@ -17,9 +20,9 @@ public class Game extends Rules {
 
     public void initGame() {
         char rep;
-
         while (this.gameChoice == null) {
             gameChoiceSelection();
+            logger.warn("Fin du jeu");
             System.out.println("Souhaitez vous quitter l'application ?");
             System.out.println("O - oui");
             System.out.println("N - non");
@@ -52,6 +55,8 @@ public class Game extends Rules {
                 }
             }
         }
+        logger.info("Jeu choisi : " + this.gameChoice + " | mode choisi : " + this.gameMode);
+        logger.info("Nombre d'erreur maximum : " + this.errorMax);
         gameChoice();
     }
 
