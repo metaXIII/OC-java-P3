@@ -1,9 +1,9 @@
-package com.metaxiii.Game;
+package com.metaxiii.game;
 
-import com.metaxiii.Enum.ListGame;
-import com.metaxiii.Enum.ListMode;
-import com.metaxiii.File.App;
-import com.metaxiii.User.User;
+import com.metaxiii.enumeration.ListGame;
+import com.metaxiii.enumeration.ListMode;
+import com.metaxiii.file.App;
+import com.metaxiii.user.User;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

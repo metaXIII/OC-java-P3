@@ -1,7 +1,7 @@
-package com.metaxiii.Game;
+package com.metaxiii.game;
 
-import com.metaxiii.Enum.ListGame;
-import com.metaxiii.Enum.ListMode;
+import com.metaxiii.enumeration.ListGame;
+import com.metaxiii.enumeration.ListMode;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

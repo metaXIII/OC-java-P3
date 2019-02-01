@@ -1,4 +1,4 @@
-package com.metaxiii.Enum;
+package com.metaxiii.enumeration;
 
 public enum ListMode {
     Challenger("1"),

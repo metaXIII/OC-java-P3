@@ -1,7 +1,7 @@
 package com.metaxiii;
 
-import com.metaxiii.File.App;
-import com.metaxiii.Game.Game;
+import com.metaxiii.file.App;
+import com.metaxiii.game.Game;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -1,4 +1,4 @@
-package com.metaxiii.File;
+package com.metaxiii.file;
 
 import java.io.IOException;
 import java.io.InputStream;

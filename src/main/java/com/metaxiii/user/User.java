@@ -1,4 +1,4 @@
-package com.metaxiii.User;
+package com.metaxiii.user;
 
 public class User {
     private boolean isPlayer;

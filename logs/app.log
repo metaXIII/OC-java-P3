@@ -1,16 +1,16 @@
 2019-53-29 16:53:23.277 [main] INFO  com.metaxiii.Main - Début du programme
 2019-53-29 16:53:23.282 [main] DEBUG com.metaxiii.Main - L'utilisateur est dev
-2019-53-29 16:53:30.550 [main] INFO  com.metaxiii.Game.Game - Jeu choisi : Mastermind | mode choisi : Mastermind
-2019-53-29 16:53:30.552 [main] INFO  com.metaxiii.Game.Game - La solution est : 1
-2019-53-29 16:53:33.444 [main] INFO  com.metaxiii.Game.Game - Erreur : 1
-2019-53-29 16:53:45.427 [main] WARN  com.metaxiii.Game.Game - Fin du jeu
+2019-53-29 16:53:30.550 [main] INFO  com.metaxiii.game.Game - Jeu choisi : Mastermind | mode choisi : Mastermind
+2019-53-29 16:53:30.552 [main] INFO  com.metaxiii.game.Game - La solution est : 1
+2019-53-29 16:53:33.444 [main] INFO  com.metaxiii.game.Game - Erreur : 1
+2019-53-29 16:53:45.427 [main] WARN  com.metaxiii.game.Game - Fin du jeu
 2019-55-29 16:55:06.532 [main] INFO  com.metaxiii.Main - Début du programme
 2019-55-29 16:55:06.539 [main] DEBUG com.metaxiii.Main - L'utilisateur est dev
-2019-55-29 16:55:11.567 [main] INFO  com.metaxiii.Game.Game - Jeu choisi : PlusOuMoins | mode choisi : Challenger
-2019-55-29 16:55:11.569 [main] INFO  com.metaxiii.Game.Game - Nombre d'erreur maximum : 0
-2019-55-29 16:55:11.571 [main] INFO  com.metaxiii.Game.Game - La solution est : 6
-2019-55-29 16:55:11.571 [main] INFO  com.metaxiii.Game.Game - Nombre d'erreur max : 4
-2019-55-29 16:55:14.030 [main] INFO  com.metaxiii.Game.Game - Erreur : 0
-2019-55-29 16:55:16.491 [main] INFO  com.metaxiii.Game.Game - Erreur : 1
-2019-55-29 16:55:18.067 [main] INFO  com.metaxiii.Game.Game - Erreur : 2
-2019-55-29 16:55:19.667 [main] WARN  com.metaxiii.Game.Game - Fin du jeu
+2019-55-29 16:55:11.567 [main] INFO  com.metaxiii.game.Game - Jeu choisi : PlusOuMoins | mode choisi : Challenger
+2019-55-29 16:55:11.569 [main] INFO  com.metaxiii.game.Game - Nombre d'erreur maximum : 0
+2019-55-29 16:55:11.571 [main] INFO  com.metaxiii.game.Game - La solution est : 6
+2019-55-29 16:55:11.571 [main] INFO  com.metaxiii.game.Game - Nombre d'erreur max : 4
+2019-55-29 16:55:14.030 [main] INFO  com.metaxiii.game.Game - Erreur : 0
+2019-55-29 16:55:16.491 [main] INFO  com.metaxiii.game.Game - Erreur : 1
+2019-55-29 16:55:18.067 [main] INFO  com.metaxiii.game.Game - Erreur : 2
+2019-55-29 16:55:19.667 [main] WARN  com.metaxiii.game.Game - Fin du jeu
