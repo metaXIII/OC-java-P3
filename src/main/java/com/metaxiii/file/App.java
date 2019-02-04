@@ -7,9 +7,7 @@ import java.util.Properties;
 public class App {
     private boolean isDev;
 
-    public App() {
-        System.out.println("Lecture du fichier config.properties");
-    }
+    public App() {}
 
     public boolean checkDev() {
         Properties prop = new Properties();

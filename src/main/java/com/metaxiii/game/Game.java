@@ -6,8 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Game extends Rules {
-    protected int errorMax;
-    protected final Logger logger = LogManager.getLogger(Game.class);
+
 
     public Game(boolean isDev) {
         super();
@@ -17,6 +16,9 @@ public class Game extends Rules {
     public Game() {
         super();
     }
+
+    @Override
+    protected void operate(int proposal, int i) {}
 
     public void initGame() {
         char rep;
