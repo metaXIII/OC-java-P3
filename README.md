@@ -33,6 +33,11 @@ Rendez vous directement dans le dossier `P3\out\artifacts\main_jar` et lancez la
 Ouvrez le projet par le biais de votre IDE.
 Vous pouvez directement vous rendre dans le dossier `P3/src/main/java/com/metaxiii` et cliquer
 sur le bouton run de la classe Main pour lancer l'application.
+Si le bouton run n'est pas possible, n'oubliez pas de d√finir le sdk pour le projet dans le project structure, indiquez les dossiers src\main\java comme dossier de source
+et src\main\resources comme dossier de ressource.
+Dans l'onglet dependencies, ajoutez les deux jars en cliquant sur le + qui sont situ√s dans le dossier lib du projet.
+Dans le dernier cas o√π un message d'erreur vous indique Error: Could not find or load main class, ouvrez le project structure, d√truisez le module et reconstruisez le en indiquant les dossiers de source
+et de ressources.
 
 # Regles du jeu
 ## Configuration du jeu
