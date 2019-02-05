@@ -1,14 +1,15 @@
 package com.metaxiii.game;
 
 import com.metaxiii.enumeration.ListMode;
-import com.metaxiii.file.App;
-
-import java.util.InputMismatchException;
-
 public class Mastermind extends Game {
 
     private String gameMode;
 
+    /**
+     * Constructeur
+     * @param gameMode {Listmode} mode de jeu
+     * @param isDev {boolean}
+     */
     Mastermind(ListMode gameMode, boolean isDev) {
         this.error = 0;
         this.proposal = 0;
@@ -16,12 +17,20 @@ public class Mastermind extends Game {
         this.isDev = isDev;
     }
 
+    /**
+     * Lancement du jeu
+     */
     public void init() {
         System.out.println("Jeu du mastermind");
         super.setSolutionMastermind(this.gameMode);
         super.init();
     }
 
+    /**
+     * Méthode réécrite
+     * @param number {int} proposition faite par le joueur
+     * @param player {int} joueur
+     */
     @Override
     protected void operate(int number, int player) {
         String solution = String.valueOf(this.solution);
