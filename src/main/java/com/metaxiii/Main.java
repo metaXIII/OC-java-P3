@@ -13,10 +13,13 @@ public class Main {
         Game game = null;
         Logger logger = LogManager.getLogger(Main.class);
 
+        //Lecture des arguments
         for (String arg : args) {
             if (arg.contains("dev"))
                 isDev = true;
         }
+
+        //Lecture de dev avec le config.properties
         logger.info("Début du programme");
         isDev = app.checkDev();
 
@@ -25,6 +28,8 @@ public class Main {
             game = new Game(true);
         } else
             game = new Game();
+
+        //Lancement du jeu
         game.initGame();
     }
 }
