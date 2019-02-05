@@ -7,8 +7,14 @@ import java.util.Properties;
 public class App {
     private boolean isDev;
 
+    /**
+     * Constructeur par défaut
+     */
     public App() {}
 
+    /**
+     * @return {boolean} isDev
+     */
     public boolean checkDev() {
         Properties prop = new Properties();
         InputStream input = null;
@@ -44,6 +50,10 @@ public class App {
         return isDev;
     }
 
+    /**
+     *
+     * @return {int} taille de la solution
+     */
     public int getSize() {
         int size = 1;
         Properties prop = new Properties();
@@ -78,6 +88,9 @@ public class App {
         return size;
     }
 
+    /**
+     * @return {int} erreur maximum
+     */
     public int getError() {
         int error = 1;
         Properties prop = new Properties();
@@ -113,6 +126,9 @@ public class App {
     }
 
 
+    /**
+     * @return {int} valeur possible pour le mastermind
+     */
     public int getValue() {
         int value = 4;
         Properties prop = new Properties();
