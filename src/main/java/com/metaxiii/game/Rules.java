@@ -11,6 +11,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 abstract class Rules {
+    //Propriétés
     protected boolean isDev = false;
     protected final Logger logger = LogManager.getLogger(Game.class);
     int size;
@@ -24,6 +25,9 @@ abstract class Rules {
     User userOne;
     User userTwo;
 
+    /**
+     * Constructeur
+     */
     Rules() {
         App app = new App();
         this.solution = 0;
@@ -31,6 +35,9 @@ abstract class Rules {
         this.sc = new Scanner(System.in);
     }
 
+    /**
+     * Imprime la taille de la solution
+     */
     void showSize() {
         int i = this.size;
         System.out.print("Combinaison secrète : ");
@@ -41,6 +48,9 @@ abstract class Rules {
         System.out.println();
     }
 
+    /**
+     * Modifie la taille de la solution
+     */
     void getSize() {
         this.size = 1;
         while (this.solution / this.size > 10) {
@@ -50,6 +60,10 @@ abstract class Rules {
             System.out.println("Combinaison secrète : " + this.solution);
     }
 
+    /**
+     * Paramétrage de la solution en fonction du mode de jeu
+     * @param gameMode {String} mode de jeu
+     */
     protected void setSolution(String gameMode) {
         if (gameMode.equals("Challenger")) {
             this.userOne = new User(true);
@@ -64,6 +78,9 @@ abstract class Rules {
         }
     }
 
+    /**
+     * Paramétrage de la solution quand le joueur 1 est défenseur
+     */
     private void DefenseurPlay() {
         this.userOne = new User(false);
         this.userTwo = new User(true);
@@ -78,6 +95,10 @@ abstract class Rules {
         }
     }
 
+    /**
+     * Modifie la solution en fonction du mode de jeu pour le Mastermind
+     * @param gameMode {String} mode de jeu
+     */
     protected void setSolutionMastermind(String gameMode) {
         if (gameMode.equals("Challenger")) {
             this.userOne = new User(true);
@@ -93,6 +114,10 @@ abstract class Rules {
     }
 
 
+    /**
+     * Lecture du fichier config.properties
+     * @return solution
+     */
     public int setSolutionDefault() {
         App app = new App();
         int limit;
@@ -102,6 +127,10 @@ abstract class Rules {
         return solution;
     }
 
+    /**
+     * Génère une solution pour le mastermind en fonction des paramètres pour les possibles values
+     * @return solution
+     */
     public int getSolutionDefault() {
         App app;
         int size;
@@ -122,6 +151,10 @@ abstract class Rules {
         return this.solution;
     }
 
+    /**
+     * Lancement du jeu
+     * Affichage de la solution si dev dans le fichier de logs
+     */
     protected void init() {
         getSize();
         if (isDev) {
@@ -136,7 +169,10 @@ abstract class Rules {
         System.out.println("Fin du jeu");
     }
 
-
+    /**
+     * Règle principale du jeu
+     * @throws InterruptedException pas nécessaire. Ajouté par soucis de "beauté du code"
+     */
     private void game() throws InterruptedException {
         logger.info("Nombre d'erreur max : " + this.errorMax);
         if (this.userOne.isPlayer() && this.userTwo.isPlayer())
@@ -163,6 +199,11 @@ abstract class Rules {
         }
     }
 
-    protected abstract void operate(int proposal, int i);
+    /**
+     * Méthode réécrite dans les enfants
+     * @param proposal {int} proposition rentrée par l'utilisateur
+     * @param player {int} joueur
+     */
+    protected abstract void operate(int proposal, int player);
 
 }
