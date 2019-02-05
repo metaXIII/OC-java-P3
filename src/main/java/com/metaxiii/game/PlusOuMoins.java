@@ -3,11 +3,14 @@ package com.metaxiii.game;
 import com.metaxiii.enumeration.ListMode;
 import com.metaxiii.file.App;
 
-import java.util.InputMismatchException;
-
 public class PlusOuMoins extends Game {
     private String gameMode;
 
+    /**
+     * Constructeur
+     * @param gameMode {Listmode} mode de jeu
+     * @param isdev {boolean} developpeur
+     */
     PlusOuMoins(ListMode gameMode, boolean isdev) {
         App app = new App();
         this.errorMax = app.getError();
@@ -17,12 +20,20 @@ public class PlusOuMoins extends Game {
         this.isDev = isdev;
     }
 
+    /**
+     * Lancement du jeu
+     */
     public void init() {
         System.out.println("Jeu du Plus ou moins");
         super.setSolution(this.gameMode);
         super.init();
     }
 
+    /**
+     * Méthode réécrite en utilisant le polymorphisme
+     * @param number {int} proposition faite par le joueur
+     * @param player {int} joueur
+     */
     @Override
     protected void operate(int number, int player) {
         int i, a, b, temp;
