@@ -73,6 +73,9 @@ Les Librairies utilisées pour ce projet sont
 
 Elles sont disponibles directement dans le dossier lib de l'application.
 
+# Soutenance
+Le powerpoint utilisé lors de la soutenance se trouve dans le dossier ext de l'application.
+
 # Licence
 Ce code a vocation a n'être utilisé que pour la validation d'un projet
 OpenClassrooms. Tout utilisation sans autorisation est interdite.
