@@ -2,24 +2,32 @@ package com.metaxiii.game;
 
 import com.metaxiii.enumeration.ListGame;
 import com.metaxiii.enumeration.ListMode;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class Game extends Rules {
 
-
+    /**
+     * Constructeur
+     * @param isDev {boolean} set dev
+     */
     public Game(boolean isDev) {
         super();
         this.isDev = isDev;
     }
 
+    /**
+     * Constructeur par défaut
+     */
     public Game() {
         super();
     }
 
+    //Empty method
     @Override
     protected void operate(int proposal, int i) {}
 
+    /**
+     * Lancement du jeu
+     */
     public void initGame() {
         char rep;
         while (this.gameChoice == null) {
@@ -36,11 +44,18 @@ public class Game extends Rules {
         }
     }
 
+    /**
+     * Reset du jeu
+     */
     private void resetGame() {
         this.gameChoice = null;
         this.gameMode = null;
     }
 
+    /**
+     * Choix du jeu
+     * Choix du mode
+     */
     private void gameChoiceSelection() {
         while (this.gameChoice == null) {
             System.out.println("A quel jeu souhaitez vous jouer ? \n" +
@@ -62,6 +77,9 @@ public class Game extends Rules {
         gameChoice();
     }
 
+    /**
+     * Lancement du jeu choisi
+     */
     private void gameChoice() {
         if (this.gameChoice.name().equals("PlusOuMoins")) {
             PlusOuMoins plusOuMoins = new PlusOuMoins(this.gameMode, this.isDev);
