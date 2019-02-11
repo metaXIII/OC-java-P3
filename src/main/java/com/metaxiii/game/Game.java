@@ -21,6 +21,16 @@ public class Game extends Rules {
         super();
     }
 
+    @Override
+    protected int solveMastermind() {
+        return 0;
+    }
+
+    @Override
+    protected int solvePlusOuMoins() {
+        return 0;
+    }
+
     //Empty method
     @Override
     protected void operate(int proposal, int i) {}
@@ -82,10 +92,10 @@ public class Game extends Rules {
      */
     private void gameChoice() {
         if (this.gameChoice.name().equals("PlusOuMoins")) {
-            PlusOuMoins plusOuMoins = new PlusOuMoins(this.gameMode, this.isDev);
+            PlusOuMoins plusOuMoins = new PlusOuMoins(this.gameMode, this.isDev, "plus ou moins");
             plusOuMoins.init();
         } else {
-            Mastermind mastermind = new Mastermind(this.gameMode, this.isDev);
+            Mastermind mastermind = new Mastermind(this.gameMode, this.isDev, "mastermind");
             mastermind.init();
         }
     }

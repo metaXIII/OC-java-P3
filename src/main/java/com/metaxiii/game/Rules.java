@@ -24,6 +24,8 @@ abstract class Rules {
     ListMode gameMode;
     User userOne;
     User userTwo;
+    protected String game;
+    protected String computer;
 
     /**
      * Constructeur
@@ -53,7 +55,7 @@ abstract class Rules {
      */
     void getSize() {
         this.size = 1;
-        while (this.solution / this.size > 10) {
+        while (this.solution / this.size >= 10) {
             this.size *= 10;
         }
         if (this.isDev)
@@ -62,6 +64,7 @@ abstract class Rules {
 
     /**
      * Paramétrage de la solution en fonction du mode de jeu
+     *
      * @param gameMode {String} mode de jeu
      */
     protected void setSolution(String gameMode) {
@@ -97,6 +100,7 @@ abstract class Rules {
 
     /**
      * Modifie la solution en fonction du mode de jeu pour le Mastermind
+     *
      * @param gameMode {String} mode de jeu
      */
     protected void setSolutionMastermind(String gameMode) {
@@ -116,6 +120,7 @@ abstract class Rules {
 
     /**
      * Lecture du fichier config.properties
+     *
      * @return solution
      */
     public int setSolutionDefault() {
@@ -129,6 +134,7 @@ abstract class Rules {
 
     /**
      * Génère une solution pour le mastermind en fonction des paramètres pour les possibles values
+     *
      * @return solution
      */
     public int getSolutionDefault() {
@@ -171,6 +177,7 @@ abstract class Rules {
 
     /**
      * Règle principale du jeu
+     *
      * @throws InterruptedException pas nécessaire. Ajouté par soucis de "beauté du code"
      */
     private void game() throws InterruptedException {
@@ -191,7 +198,10 @@ abstract class Rules {
             }
             if (this.userTwo.isPlayer() && this.proposal != this.solution) {
                 System.out.println("C'est l'ordinateur qui joue");
-                this.proposal = (int) (Math.random() * (this.size * 10));
+                if (this.game.equals("plus ou moins"))
+                    this.proposal = this.solvePlusOuMoins();
+                else
+                    this.proposal = this.solveMastermind();
                 System.out.println("L'ordi a décidé : " + this.proposal);
                 Thread.sleep(2000);
                 operate(this.proposal, 2);
@@ -200,9 +210,20 @@ abstract class Rules {
     }
 
     /**
+     * @return int solution
+     */
+    protected abstract int solveMastermind();
+
+    /**
+     * @return int solution
+     */
+    protected abstract int solvePlusOuMoins();
+
+    /**
      * Méthode réécrite dans les enfants
+     *
      * @param proposal {int} proposition rentrée par l'utilisateur
-     * @param player {int} joueur
+     * @param player   {int} joueur
      */
     protected abstract void operate(int proposal, int player);
 
