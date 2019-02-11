@@ -10,7 +10,8 @@ public class App {
     /**
      * Constructeur par défaut
      */
-    public App() {}
+    public App() {
+    }
 
     /**
      * @return {boolean} isDev
@@ -51,7 +52,6 @@ public class App {
     }
 
     /**
-     *
      * @return {int} taille de la solution
      */
     public int getSize() {
@@ -111,8 +111,9 @@ public class App {
 
             error = Integer.parseInt(prop.getProperty("errorMax"));
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException | NumberFormatException e) {
+            e.printStackTrace();
+            return 4;
         } finally {
             if (input != null) {
                 try {
@@ -149,8 +150,9 @@ public class App {
 
             value = Integer.parseInt(prop.getProperty("possibleValueMastermind"));
 
-        } catch (IOException ex) {
+        } catch (IOException | NumberFormatException ex) {
             ex.printStackTrace();
+            return 4;
         } finally {
             if (input != null) {
                 try {
