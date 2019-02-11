@@ -50,9 +50,11 @@ public class Mastermind extends Game {
                 boolean isPresent = proposition.charAt(i) == solution.charAt(j);
                 if (isPresent && i == j) {
                     place++;
-                    char[] element = toSave.toCharArray();
-                    element[i] = proposition.charAt(i);
-                    this.toSave = String.valueOf(element);
+                    if (this.userTwo.isPlayer()) {
+                        char[] element = toSave.toCharArray();
+                        element[i] = proposition.charAt(i);
+                        this.toSave = String.valueOf(element);
+                    }
                 } else if (isPresent) {
                     present++;
                 }
