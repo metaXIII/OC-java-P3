@@ -14,11 +14,11 @@ abstract class Rules {
     //Propriétés
     protected boolean isDev = false;
     protected final Logger logger = LogManager.getLogger(Game.class);
-    int size;
+    protected int size;
     protected int proposal;
     protected int error;
     protected int errorMax;
-    int solution;
+    protected int solution;
     Scanner sc;
     ListGame gameChoice;
     ListMode gameMode;
@@ -26,6 +26,7 @@ abstract class Rules {
     User userTwo;
     protected String game;
     protected String computer;
+    protected String toSave;
 
     /**
      * Constructeur
@@ -140,9 +141,9 @@ abstract class Rules {
     public int getSolutionDefault() {
         App app;
         int size;
-        int limit;
         int i;
         String el;
+        int limit;
         el = "";
         i = 0;
         app = new App();
