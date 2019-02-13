@@ -10,6 +10,10 @@ Le jeu se déroule en mode console.
 ### Installation du JDK
 Rendez vous sur le site [d'oracle](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 et téléchargez la dernière version du JDK disponible.
+Le projet a été réalisé avec la version 11 du JDK, toutefois il est possible de la passer en version 8
+pour le module directement.
+Pour cela, rendez vous dans le project structure, définissez le jdk utilisé et assurez vous que le
+langage level du module soit bien en version 8 maximum. 
 
 ### Installation d'un IDE
 Rendez vous sur le site [d'Intellij](https://www.jetbrains.com/idea/download/#section=windows) et téléchargez la version
